@@ -1,46 +1,184 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vishal | Calculator</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vishal Calculator Pro</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="app">
+    <header>
+      <h1>Vishal Calculator <span>PRO</span></h1>
+      <p>All-in-one smart calculator</p>
+    </header>
 
-    <div class="calculator">
-        <h1>Vishal's Calculator</h1>
+    <nav class="tabs">
+      <button class="tab active" data-tab="basic">Basic</button>
+      <button class="tab" data-tab="scientific">Scientific</button>
+      <button class="tab" data-tab="age">Age</button>
+      <button class="tab" data-tab="currency">Currency</button>
+      <button class="tab" data-tab="units">Units</button>
+      <button class="tab" data-tab="history">History</button>
+    </nav>
 
-        <input type="text" id="display"
-               placeholder="0" readonly>
+    <main>
+      <section id="basic" class="panel active">
+        <div class="calculator">
+          <input id="display" class="display" type="text" value="0" readonly>
+          <div class="keypad">
+            <button class="key special" data-action="clear">AC</button>
+            <button class="key special" data-action="delete">DEL</button>
+            <button class="key special" data-value="%">%</button>
+            <button class="key operator" data-value="/">÷</button>
 
-        <div class="buttons">
-            <button data-action="clear">AC</button>
-            <button data-action="delete">DEL</button>
-            <button data-value="/">÷</button>
-            <button data-value="*">×</button>
+            <button class="key" data-value="7">7</button>
+            <button class="key" data-value="8">8</button>
+            <button class="key" data-value="9">9</button>
+            <button class="key operator" data-value="*">×</button>
 
-            <button data-value="7">7</button>
-            <button data-value="8">8</button>
-            <button data-value="9">9</button>
-            <button data-value="-">−</button>
+            <button class="key" data-value="4">4</button>
+            <button class="key" data-value="5">5</button>
+            <button class="key" data-value="6">6</button>
+            <button class="key operator" data-value="-">−</button>
 
-            <button data-value="4">4</button>
-            <button data-value="5">5</button>
-            <button data-value="6">6</button>
-            <button data-value="+">+</button>
+            <button class="key" data-value="1">1</button>
+            <button class="key" data-value="2">2</button>
+            <button class="key" data-value="3">3</button>
+            <button class="key operator" data-value="+">+</button>
 
-            <button data-value="1">1</button>
-            <button data-value="2">2</button>
-            <button data-value="3">3</button>
-            <button data-action="calculate" class="equal">=</button>
-
-            <button data-value="0" class="zero">0</button>
-            <button data-value=".">.</button>
+            <button class="key" data-action="sign">+/-</button>
+            <button class="key" data-value="0">0</button>
+            <button class="key" data-value=".">.</button>
+            <button class="key equal" data-action="equals">=</button>
+          </div>
         </div>
-    </div>
+      </section>
 
+      <section id="scientific" class="panel">
+        <h2>Scientific Calculator</h2>
+        <input id="sciDisplay" class="display" value="0" readonly>
+        <div class="mode-row">
+          <button id="angleMode" class="action-btn">DEG</button>
+          <button id="sciClear" class="action-btn">Clear</button>
+        </div>
+        <div class="sci-grid">
+          <button data-sci="sin">sin</button>
+          <button data-sci="cos">cos</button>
+          <button data-sci="tan">tan</button>
+          <button data-sci="sqrt">√</button>
+          <button data-sci="asin">sin⁻¹</button>
+          <button data-sci="acos">cos⁻¹</button>
+          <button data-sci="atan">tan⁻¹</button>
+          <button data-sci="square">x²</button>
+          <button data-sci="log">log</button>
+          <button data-sci="ln">ln</button>
+          <button data-sci="pi">π</button>
+          <button data-sci="factorial">x!</button>
+          <button data-sci="open">(</button>
+          <button data-sci="close">)</button>
+          <button data-sci="back">DEL</button>
+          <button data-sci="clear">AC</button>
+          <button data-sci="7">7</button>
+          <button data-sci="8">8</button>
+          <button data-sci="9">9</button>
+          <button data-sci="/">÷</button>
+          <button data-sci="4">4</button>
+          <button data-sci="5">5</button>
+          <button data-sci="6">6</button>
+          <button data-sci="*">×</button>
+          <button data-sci="1">1</button>
+          <button data-sci="2">2</button>
+          <button data-sci="3">3</button>
+          <button data-sci="-">−</button>
+          <button data-sci="0">0</button>
+          <button data-sci=".">.</button>
+          <button data-sci="equals" class="sci-equal">=</button>
+          <button data-sci="+">+</button>
+        </div>
+        <p class="hint">Use DEG/RAD to change angle mode.</p>
+      </section>
+
+      <section id="age" class="panel">
+        <h2>Age Calculator</h2>
+        <label for="birthDate">Your date of birth</label>
+        <input id="birthDate" type="date">
+        <button id="calculateAge" class="primary-btn">Calculate Age</button>
+        <div id="ageResult" class="result">Your age will appear here.</div>
+      </section>
+
+      <section id="currency" class="panel">
+        <h2>Currency Converter</h2>
+        <label for="currencyAmount">Amount</label>
+        <input id="currencyAmount" type="number" min="0" value="1">
+        <div class="two-cols">
+          <div>
+            <label for="fromCurrency">From</label>
+            <select id="fromCurrency">
+              <option value="INR">INR - Indian Rupee</option>
+              <option value="USD">USD - US Dollar</option>
+              <option value="EUR">EUR - Euro</option>
+              <option value="GBP">GBP - British Pound</option>
+              <option value="JPY">JPY - Japanese Yen</option>
+              <option value="AED">AED - UAE Dirham</option>
+              <option value="CAD">CAD - Canadian Dollar</option>
+              <option value="AUD">AUD - Australian Dollar</option>
+            </select>
+          </div>
+          <div>
+            <label for="toCurrency">To</label>
+            <select id="toCurrency">
+              <option value="USD">USD - US Dollar</option>
+              <option value="INR">INR - Indian Rupee</option>
+              <option value="EUR">EUR - Euro</option>
+              <option value="GBP">GBP - British Pound</option>
+              <option value="JPY">JPY - Japanese Yen</option>
+              <option value="AED">AED - UAE Dirham</option>
+              <option value="CAD">CAD - Canadian Dollar</option>
+              <option value="AUD">AUD - Australian Dollar</option>
+            </select>
+          </div>
+        </div>
+        <button id="convertCurrency" class="primary-btn">Convert Currency</button>
+        <div id="currencyResult" class="result">Conversion result will appear here.</div>
+        <p class="hint">Requires internet. Exchange rates are provided by an online service and may be delayed.</p>
+      </section>
+
+      <section id="units" class="panel">
+        <h2>Unit Converter</h2>
+        <label for="unitType">Conversion type</label>
+        <select id="unitType">
+          <option value="length">Length</option>
+          <option value="weight">Weight</option>
+          <option value="temperature">Temperature</option>
+        </select>
+        <label for="unitAmount">Value</label>
+        <input id="unitAmount" type="number" value="1">
+        <div class="two-cols">
+          <div>
+            <label for="unitFrom">From</label>
+            <select id="unitFrom"></select>
+          </div>
+          <div>
+            <label for="unitTo">To</label>
+            <select id="unitTo"></select>
+          </div>
+        </div>
+        <button id="convertUnit" class="primary-btn">Convert Unit</button>
+        <div id="unitResult" class="result">Converted value will appear here.</div>
+      </section>
+
+      <section id="history" class="panel">
+        <h2>Calculation History</h2>
+        <button id="clearHistory" class="action-btn">Clear History</button>
+        <div id="historyList" class="history-list">
+          <p>No calculations yet.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>Made with ❤️ | 45Calculator </footer>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
